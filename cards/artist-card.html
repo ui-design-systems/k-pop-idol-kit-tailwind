@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>dearALICE Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .scrolling-text {
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .scrolling-text span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-text 6s linear infinite;
+    }
+
+    @keyframes scroll-text {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+
+  <div class="w-72 bg-white rounded-xl shadow-md relative overflow-hidden group">
+    <!-- Image Grid -->
+    <div class="grid grid-cols-3 grid-rows-2 gap-1 p-2">
+      <div class="col-span-1 row-span-1 overflow-hidden rounded">
+        <img src="../assets/images/artists/bach-tran-eWwwqvhOxlc-unsplash.jpg" alt="1" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" />
+      </div>
+      <div class="col-span-1 row-span-1 overflow-hidden rounded">
+        <img src="../assets/images/artists/bui-hoang-long-rKeQVwy4Cmw-unsplash(1).jpg" alt="2" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" />
+      </div>
+      <div class="col-span-1 row-span-1 overflow-hidden rounded">
+        <img src="../assets/images/artists/h-ng-nguy-n-1H2-Q0qAQYo-unsplash.jpg" alt="3" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" />
+      </div>
+      <div class="col-span-1 row-span-1 overflow-hidden rounded">
+        <img src="../assets/images/artists/igor-rand-8xkbOk__irc-unsplash.jpg" alt="4" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" />
+      </div>
+      <div class="col-span-1 row-span-1 overflow-hidden rounded">
+        <img src="../assets/images/artists/katherin-ruiz-mago-S2j87s6fSbQ-unsplash.jpg" alt="5" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" />
+      </div>
+      <div class="col-span-1 row-span-1 overflow-hidden rounded">
+        <img src="../assets/images/artists/uliana-soboleva--FCmsS7qcpE-unsplash.jpg" alt="5" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" />
+      </div>
+      <!-- Center image overlay -->
+      <div class="absolute top-60 left-1/2 transform -translate-x-1/2 rounded-full border-4 border-white w-16 h-16 overflow-hidden">
+        <img src="../assets/images/artists/suhendro-purnomo-K_oaiOEykYI-unsplash.jpg" alt="center" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <!-- Title -->
+    <div class="relative px-4 py-5">
+      <div id="title" class="text-center font-bold text-lg text-black overflow-hidden">
+        <div class="scrolling-text hidden">
+          <span>dearALICE with a really long name example</span>
+        </div>
+        <div class="static-text block">dearALICE</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Title scrolling check
+    const container = document.getElementById("title");
+    const staticText = container.querySelector(".static-text");
+    const scrollingText = container.querySelector(".scrolling-text");
+
+    // Compare widths after DOM is loaded
+    window.addEventListener("load", () => {
+      const titleWidth = staticText.scrollWidth;
+      const containerWidth = container.clientWidth;
+
+      if (titleWidth > containerWidth) {
+        staticText.style.display = "none";
+        scrollingText.style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>

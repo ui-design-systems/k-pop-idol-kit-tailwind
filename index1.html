@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K-Pod UI Starter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-black via-purple-900 to-pink-500 min-h-screen text-white p-6">
+  <h1 class="text-4xl font-bold mb-6">K-Pod UI Starter</h1>
+
+  <div class="flex gap-4 mb-4">
+    <button onclick="showTab('artists')" class="px-4 py-2 bg-pink-600 hover:bg-pink-700 rounded">Artists</button>
+    <button onclick="showTab('albums')" class="px-4 py-2 bg-pink-600 hover:bg-pink-700 rounded">Albums</button>
+  </div>
+
+  <div id="artists" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="bg-white/10 backdrop-blur-lg p-4 rounded">
+      <img src="/images/jisoo.jpg" alt="Jisoo" class="rounded-full w-24 h-24 mx-auto border-2 border-pink-400 object-cover" />
+      <h2 class="mt-4 text-xl font-semibold text-center">Jisoo</h2>
+      <p class="text-sm text-pink-200 text-center">BLACKPINK</p>
+      <p class="mt-2 text-center text-sm text-white/80">Lead vocalist and visual of BLACKPINK.</p>
+      <button class="mt-4 bg-pink-500 hover:bg-pink-600 w-full py-2 rounded">View Profile</button>
+    </div>
+
+    <div class="bg-white/10 backdrop-blur-lg p-4 rounded">
+      <img src="/images/v.jpg" alt="V" class="rounded-full w-24 h-24 mx-auto border-2 border-pink-400 object-cover" />
+      <h2 class="mt-4 text-xl font-semibold text-center">V</h2>
+      <p class="text-sm text-pink-200 text-center">BTS</p>
+      <p class="mt-2 text-center text-sm text-white/80">Vocalist of BTS with a deep, soulful voice.</p>
+      <button class="mt-4 bg-pink-500 hover:bg-pink-600 w-full py-2 rounded">View Profile</button>
+    </div>
+  </div>
+
+  <div id="albums" class="hidden text-white/70">Coming soon...</div>
+
+  <script>
+    function showTab(tab) {
+      document.getElementById('artists').style.display = tab === 'artists' ? 'grid' : 'none';
+      document.getElementById('albums').style.display = tab === 'albums' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

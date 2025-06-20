@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TIOT Card</title>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+   <link rel="stylesheet" href="../assets/tailwind-css.css">
+  <style>
+    .scrolling-text {
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .scrolling-text span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-text 6s linear infinite;
+    }
+
+    @keyframes scroll-text {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+
+  <div class="w-72 bg-white rounded-xl shadow-md overflow-hidden group relative avatar-card">
+    <!-- Main Image -->
+    <div class="overflow-hidden">
+      <img src="../assets/images/artists/igor-rand-8xkbOk__irc-unsplash.jpg" alt="TIOT group" class="w-full h-44 object-cover transition-transform duration-300 group-hover:scale-105" />
+    </div>
+
+    <!-- Center logo image -->
+    <div class="absolute top left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border-4 border-white overflow-hidden bg-white z-10">
+      <img src="../assets/images/artists/igor-rand-8xkbOk__irc-unsplash.jpg" alt="TIOT logo" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Title -->
+    <div class="relative px-4 pt-8 pb-4">
+      <div id="title2" class="avatar-card-content text-center font-bold text-lg text-black overflow-hidden">
+        <div class="scrolling-text hidden">
+          <span>TIOT with an ultra super long name that scrolls</span>
+        </div>
+        <div class="static-text block">TIOT</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Scrolling text check
+    const container = document.querySelector("avatar-card-content");
+    const staticText = container.querySelector(".static-text");
+    const scrollingText = container.querySelector(".scrolling-text");
+
+    window.addEventListener("load", () => {
+      const titleWidth = staticText.scrollWidth;
+      const containerWidth = container.clientWidth;
+
+      if (titleWidth > containerWidth) {
+        staticText.style.display = "none";
+        scrollingText.style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
